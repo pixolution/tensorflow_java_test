@@ -1,0 +1,2 @@
+tensorflow==2.7.1
+tensorflow-hub==0.12.0
