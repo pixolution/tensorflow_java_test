@@ -51,11 +51,6 @@ public class App {
     
     public static void doInference(SavedModelBundle savedModel, String msg) {
 		long start = System.currentTimeMillis();
-	    if (System.getenv().containsKey("TF_XLA_FLAGS")) {
-	    	System.out.println("TF_XLA_FLAGS="+System.getenv().get("TF_XLA_FLAGS"));
-	    } else {
-	    	System.out.println("TF_XLA_FLAGS not set");
-	    }
 	    try (TFloat32 xTensor = TFloat32.tensorOf(NdArrays.ofFloats(Shape.of(1,244,244,3)));
 	    	 TFloat32 zTensor = (TFloat32) savedModel
 	                    .call(Collections.singletonMap("inputs", xTensor))
