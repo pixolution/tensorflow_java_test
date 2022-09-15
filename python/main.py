@@ -9,4 +9,4 @@ inference_func = hub.KerasLayer(model_path)
 start = timer()
 dummy_input = tf.constant(0.5, shape=(1, 224, 224, 3))
 elapsed_seconds = timer() - start
-print(f"Warm up finished in {elapsed_seconds} seconds")
+print(f"Python: warm up finished in {elapsed_seconds} seconds")
