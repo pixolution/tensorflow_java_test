@@ -19,13 +19,15 @@ if [ ! -f "/tmp/vit_b32_fe/saved_model.pb" ]; then
   tar xfz vit_b32_fe_1.tar.gz
   cd "$WD"
 fi
-
+echo "Model can be loaded from /tmp/vit_b32_fe/"
+if [ "$1" == "only_dl" ]; then
+	exit 0
+fi
 echo
 echo "Running python"
 echo
 ./python/runPython.sh
 
-echo "Model can be loaded from /tmp/vit_b32_fe/"
 echo
 echo "Running java"
 echo
