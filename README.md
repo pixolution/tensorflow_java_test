@@ -10,7 +10,7 @@ to have a reproducable environment.
 ### Run all at once
 ```
 phoenix@dev:~/workspaces/research/tf_tests$ ./run.sh 2> /dev/null | grep "warm up"
-Python: warm up finished in 0.00015165700460784137 seconds
+Python: warm up finished in 22.75354215799598 seconds
 Java: Model without ConfigProto, warm up took 23.337 seconds
 Java: Model with ConfigProto/disabled JIT, warm up took 23.55 seconds
 ```
@@ -102,7 +102,7 @@ Loading saved model from /tmp/vit_b32_fe/
 2022-09-15 16:26:30.297918: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:163] no NVIDIA GPU device is present: /dev/nvidia0 does not exist
 2022-09-15 16:26:30.298052: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
 To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
-Python: warm up finished in 0.0001589010062161833 seconds
+Python: warm up finished in 22.75354215799598 seconds
 ```
  * Java test
 ```
