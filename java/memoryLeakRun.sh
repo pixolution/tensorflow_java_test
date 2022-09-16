@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-VALGRIND_OPS="--tool=memcheck  --smc-check=all --error-limit=no "
+VALGRIND_OPS="--tool=memcheck  --smc-check=all --error-limit=no --leak-check=full --track-origins=yes"
 #VALGRIND_OPS="--tool=memcheck --leak-check=full --smc-check=all"
 cd "$(dirname "$BASH_SOURCE")"
 WD=$(pwd)
