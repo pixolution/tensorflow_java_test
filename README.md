@@ -42,6 +42,7 @@ Model can be loaded from /tmp/vit_b32_fe/
 ```
  * Python test
 ```
+phoenix@dev:~/workspaces/research/tf_tests$ ./python/runPython.sh
 Collecting tensorflow==2.7.1
   Downloading tensorflow-2.7.1-cp38-cp38-manylinux2010_x86_64.whl (495.1 MB)
      |████████████████████████████████| 495.1 MB 35 kB/s
