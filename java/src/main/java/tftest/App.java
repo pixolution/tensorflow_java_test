@@ -18,10 +18,10 @@ public class App {
 	private final static String modelPath = "/tmp/vit_b32_fe/";
 
     public static void main(String[] args) {
-    	for (int i=0;i<50;i++) {
+    	for (int i=0;i<1;i++) {
     		System.out.println("Testing inference number "+i);
     		try (SavedModelBundle savedModel = SavedModelBundle.loader(modelPath).withTags(new String[]{"serve"}).load()) {
-    			for (int j=0; j<50; j++) {
+    			for (int j=0; j<1; j++) {
     				doInference(savedModel, "Model init "+i+" Inference "+j);
     			}
     		}      		

@@ -1,7 +1,8 @@
 #!/bin/bash
 
 
-VALGRIND_OPS="--tool=memcheck --leak-check=full --smc-check=all"
+VALGRIND_OPS="--tool=memcheck  --smc-check=all --error-limit=no "
+#VALGRIND_OPS="--tool=memcheck --leak-check=full --smc-check=all"
 cd "$(dirname "$BASH_SOURCE")"
 WD=$(pwd)
 # tempfile for JNI binaries
