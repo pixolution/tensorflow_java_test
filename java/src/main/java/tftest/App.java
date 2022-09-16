@@ -18,10 +18,14 @@ public class App {
 	private final static String modelPath = "/tmp/vit_b32_fe/";
 
     public static void main(String[] args) {
-        System.out.println("Testing query without ConfigProto");
-	    try (SavedModelBundle savedModel = SavedModelBundle.loader(modelPath).withTags(new String[]{"serve"}).load()) {
-	    	doInference(savedModel, "Java: Model without ConfigProto");
-	    }  
+    	for (int i=0;i<50;i++) {
+    		System.out.println("Testing inference number "+i);
+    		try (SavedModelBundle savedModel = SavedModelBundle.loader(modelPath).withTags(new String[]{"serve"}).load()) {
+    			for (int j=0; j<50; j++) {
+    				doInference(savedModel, "Model init "+i+" Inference "+j);
+    			}
+    		}      		
+    	}
     }
     
     public static void doInference(SavedModelBundle savedModel, String msg) {
@@ -31,7 +35,7 @@ public class App {
 	                    .call(Collections.singletonMap("inputs", xTensor))
 	                    .get("output_0").get()) {
 	    	long end = System.currentTimeMillis();
-	    	System.out.println(msg + ", warm up took "+((end-start)/1000f)+" seconds");
+	    	System.out.println(msg + ", query took "+((end-start))+" ms");
 	    
 	    }
     }
