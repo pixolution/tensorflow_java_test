@@ -21,7 +21,7 @@ public class App {
     	for (int i=0;i<1;i++) {
     		System.out.println("Testing inference number "+i);
     		try (SavedModelBundle savedModel = SavedModelBundle.loader(modelPath).withTags(new String[]{"serve"}).load()) {
-    			for (int j=0; j<1; j++) {
+    			for (int j=0; j<1000000; j++) {
     				doInference(savedModel, "Model init "+i+" Inference "+j);
     			}
     		}      		
