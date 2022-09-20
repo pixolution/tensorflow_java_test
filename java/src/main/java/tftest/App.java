@@ -21,21 +21,23 @@ public class App {
     	for (int i=0;i<1;i++) {
     		System.out.println("Testing inference number "+i);
     		try (SavedModelBundle savedModel = SavedModelBundle.loader(modelPath).withTags(new String[]{"serve"}).load()) {
-    			for (int j=0; j<1000000; j++) {
-    				doInference(savedModel, "Model init "+i+" Inference "+j);
+    			for (int j=0; j<5000000; j++) {
+    				doInference(savedModel, "Model init "+i+" Inference "+j, j%1000==0);
     			}
     		}      		
     	}
     }
     
-    public static void doInference(SavedModelBundle savedModel, String msg) {
+    public static void doInference(SavedModelBundle savedModel, String msg, boolean printOut) {
 		long start = System.currentTimeMillis();
 	    try (TFloat32 xTensor = TFloat32.tensorOf(NdArrays.ofFloats(Shape.of(1,244,244,3)));
 	    	 TFloat32 zTensor = (TFloat32) savedModel
 	                    .call(Collections.singletonMap("inputs", xTensor))
 	                    .get("output_0").get()) {
 	    	long end = System.currentTimeMillis();
-	    	System.out.println(msg + ", query took "+((end-start))+" ms");
+		if (printOut) {
+		    	System.out.println(msg + ", query took "+((end-start))+" ms");
+		}
 	    
 	    }
     }
